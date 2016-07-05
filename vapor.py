@@ -1,9 +1,13 @@
 from flask import Flask, redirect, render_template
 from flask_script import Manager
+from flask_bootstrap import Bootstrap
+
+
 import os
 
 app = Flask(__name__)
 app.debug = True # Remove in production
+Bootstrap(app)
 
 # Routes
 @app.route('/')

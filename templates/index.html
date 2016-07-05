@@ -1,4 +1,42 @@
-<h1>VaporFlask</h1>
-<div>
-    <img src="https://67.media.tumblr.com/5be8f128e1a36099f93e730c19ce1565/tumblr_o2ce31aUnt1rsdpaso1_500.gif">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.css') }}">
+
+{% extends "bootstrap/base.html" %}
+
+{% block title %} Vapor Flask {% endblock %}
+
+{% block navbar %}
+
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle"
+            data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only"> TOGGLE NAVIGATION</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"> VAPOR FLASK</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">HOME</a></li>
+                <li><a href="/user/ahoff">AHOFF's VAPORWAVE LAIR</a></li>
+            </ul>
+        </div>
+    </div>
 </div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h1>VaporFlask</h1>
+    <div>
+        <img src="https://67.media.tumblr.com/5be8f128e1a36099f93e730c19ce1565/tumblr_o2ce31aUnt1rsdpaso1_500.gif">
+    </div>
+</div>
+
+{% endblock %}
+
