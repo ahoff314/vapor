@@ -5,7 +5,9 @@
 
 {% block title %} Vapor Flask {% endblock %}
 
+
 {% block navbar %}
+
 
 <div class="navbar navbar-inverse" role="navigation">
     <div class="container">
@@ -18,10 +20,10 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="/"> VAPOR FLASK</a>
+            <a class="navbar-brand" href="/user/floff">FLOFF's VAPORWAVE LAIR</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="/">HOME</a></li>
             </ul>
         </div>
     </div>
@@ -32,9 +34,10 @@
 {% block content %}
 
 <div class="container">
-    <div class="page-header">
-        <h1> Hello, {{name}}</h1>
-    </div>
+    {% block page_content %}{% endblock %}
 </div>
 
 {% endblock %}
+
+
+
