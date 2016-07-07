@@ -1,35 +1,24 @@
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.css') }}">
+
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
-{% import "_macros.html" as macros %}
 
-{% block title %}Flasky{% endblock %}
+{% block title %} Vapor Blog {% endblock %}
 
-{% block page_content %}
-<div class="page-header">
-    <h1>Hello, {% if current_user.is_authenticated %}{{ current_user.username }}{% else %}Stranger{% endif %}!</h1>
-</div>
-<div>
-    {% if current_user.can(Permission.WRITE_ARTICLES) %}
+
+
+{% block content %}
+
+<div class="container">
+    <h1>VaporFlask | {{ current_time }}</h1>
+    <div class="page-header">
+        <img src="https://67.media.tumblr.com/5be8f128e1a36099f93e730c19ce1565/tumblr_o2ce31aUnt1rsdpaso1_500.gif">
+        <h1> Hello {% if name %} {{name}} {% else %} Stranger {% endif %} ! Oh how I've missed you! </h1>
+    </div>
     {{ wtf.quick_form(form) }}
-    {% endif %}
 </div>
-<div class="post-tabs">
-    <ul class="nav nav-tabs">
-        <li{% if not show_followed %} class="active"{% endif %}><a href="{{ url_for('.show_all') }}">All</a></li>
-        {% if current_user.is_authenticated %}
-        <li{% if show_followed %} class="active"{% endif %}><a href="{{ url_for('.show_followed') }}">Followers</a></li>
-        {% endif %}
-    </ul>
-    {% include '_posts.html' %}
-</div>
-{% if pagination %}
-<div class="pagination">
-    {{ macros.pagination_widget(pagination, '.index') }}
-</div>
-{% endif %}
+
 {% endblock %}
 
-{% block scripts %}
-{{ super() }}
-{{ pagedown.include_pagedown() }}
-{% endblock %}
+
+

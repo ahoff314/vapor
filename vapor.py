@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template
+from flask import Flask, redirect, render_template, url_for, flash, session
 from flask_script import Manager
 from flask_bootstrap import Bootstrap
 from flask_wtf import Form
@@ -16,18 +16,20 @@ Bootstrap(app)
 
 class NameForm(Form):
     name = StringField("What is your name, friend?", validators=[Required()])
-    submit = SubmitField('Submit')
+    submit = SubmitField('SUBMIT')
 
 # Routes
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    name = None
     form = NameForm()
     if form.validate_on_submit():
-        name = form.name.data
-        form.name.data = ' '
+        old_name = session.get('name')
+        if old_name is not None and old_name != form.name.data:
+            flash('You changed your name!')
+        session['name'] = form.name.data
+        return redirect(url_for('index'))
     return render_template('index.html', current_time=datetime.date.today(),
-    form=form, name=name)
+        form=form, name=session.get('name'))
     
 
 @app.route('/user/<name>')
