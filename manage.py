@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 import os
 from app import create_app
+from flask_sqlalchemy import SQLAlchemy
+from flask import Flask
 
 COV = None
 if os.environ.get('FLASK_COVERAGE'):
@@ -21,6 +23,7 @@ from app import create_app
 app = create_app(os.getenv('FLASK_CONFIG') or 'default')
 #manager = Manager(app)
 #migrate = Migrate(app, db)
+
 
 
 
