@@ -1,16 +1,16 @@
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask.ext.sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 from flask import Flask
 import os
 from __init__ import db
 
 class Role(db.Model):
     __tablename__ = 'roles'
-    extend_existing=True
+    #extend_existing=True
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), unique=True)
     
-    def __repr(self):
+    def __repr__(self):
         return '<Role %r>' % self.name
     
     users = db.relationship('User', backref='role')
@@ -18,11 +18,11 @@ class Role(db.Model):
 class User(db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(64), unique=True, index=True)
+    username = db.Column(db.String(64), unique=True, index=True)
     password_hash = db.Column(db.String(128))
     
-    def __repr(self):
-        return '<Role %r>' % self.name
+    def __repr__(self):
+        return '<User %r>' % self.username
     
     role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
     
