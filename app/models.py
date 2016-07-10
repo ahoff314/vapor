@@ -6,7 +6,7 @@ from __init__ import db
 
 class Role(db.Model):
     __tablename__ = 'roles'
-    #extend_existing=True
+    extend_existing=True
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), unique=True)
     
