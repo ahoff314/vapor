@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import os
-from app import create_app
-from flask_sqlalchemy import SQLAlchemy
+#from app import create_app
+#from flask.ext.sqlalchemy import SQLAlchemy
 from flask import Flask
 
 COV = None

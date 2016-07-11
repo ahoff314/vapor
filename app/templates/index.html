@@ -8,6 +8,12 @@
 
 
 {% block content %}
+Hello,
+{% if current_user.is_authenticated %}
+    {{ current_user.username }}
+{% else %}
+    Stranger
+{% endif %}!
 
 <div class="container">
     <h1>VaporFlask | {{ current_time }}</h1>
