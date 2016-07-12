@@ -19,7 +19,7 @@ class RegistrationForm(Form):
 
     def validate_username(self, field):
         if User.query.filter_by(username=field.data).first():
-            raise ValidationError('Username already exists in  VAPOR LAND.')
+            raise ValidationError('Username already exists in  VAPORLAND.')
 
 class LoginForm(Form):
     email = StringField('Email', validators=[Required(), Length(1, 64),
