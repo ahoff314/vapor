@@ -1,13 +1,18 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
-{% block title %}VAPOR LAND REGISTRATION{% endblock %}
+{% block title %}VAPORLAND REGISTRATION{% endblock %}
 
 {% block page_content %}
 <div class="page-header">
-    <h1>REGISTER VAPORLAND</h1>
+    <h1>REGISTER FOR VAPORLAND</h1>
 </div>
-<div class="col-md-4">
-    {{ wtf.quick_form(form) }}
+<div class="row">
+    <div class="col-md-4">
+        {{ wtf.quick_form(form) }}
+    </div>
+    <div class="col-md-8">
+        <img src="https://s-media-cache-ak0.pinimg.com/736x/cc/e1/40/cce1400b33e88e0ffcf6a9a085718453.jpg">
+    </div>
 </div>
 {% endblock %}

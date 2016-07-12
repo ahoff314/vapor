@@ -1,20 +1,26 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
-{% block title %}VAPOR LAND{% endblock %}
+{% block title %}VAPORLAND{% endblock %}
 
 {% block page_content %}
 <div class="page-header">
-    <h1> LOGIN </h1>
+    <h1> LOGIN TO VAPORLAND </h1>
 </div>
-<div class="col-md-4">
-    {{ wtf.quick_form(form) }}
+<div class="row">
+    <div class="col-md-6">
+        {{ wtf.quick_form(form) }}
+         <p>
+            New user?
+            <a href="{{ url_for('auth.register') }}">
+            REGISTER HERE
+            </a>
+        </p>
+    </div>
+    <div class="col-md-6">
+        <img src="https://thumbs.gfycat.com/AlarmingPastelIridescentshark-size_restricted.gif">
+        
+    </div>
 </div>
 
-<p>
-    New user?
-    <a href="{{ url_for('auth.register') }}">
-    REGISTER HERE
-    </a>
-</p>
 {% endblock %}

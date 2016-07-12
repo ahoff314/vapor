@@ -6,7 +6,8 @@ from ..models import User
 
 
 class RegistrationForm(Form):
-  
+    email = StringField('Email', validators=[Required(), Length(1, 64),
+                                           Email()])
     username = StringField('Username', validators=[
         Required(), Length(1, 64), Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0,
                                           'Usernames must have only letters, '
@@ -21,7 +22,8 @@ class RegistrationForm(Form):
             raise ValidationError('Username already exists in  VAPOR LAND.')
 
 class LoginForm(Form):
-    username = StringField('Username', validators=[Required(), Length(1, 64)])
+    email = StringField('Email', validators=[Required(), Length(1, 64),
+                                                             Email()])
     password = PasswordField('Password', validators=[Required()])
     remember_me = BooleanField('Keep me logged in to the vapor sphere')
     submit = SubmitField("Log In")
