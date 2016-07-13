@@ -32,7 +32,7 @@ def register():
                     password=form.password.data)
         db.session.add(user)
         db.session.commit()
-        flash('Congrats! You are registered. Login to VAPORLAND below.')
+        flash('Congrats! You are now registered. Login to VAPORLAND below.')
         return redirect(url_for('auth.login'))
     return render_template('auth/register.html', form=form)
     
