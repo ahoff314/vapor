@@ -3,26 +3,25 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
-{% block title %} Vapor Blog {% endblock %}
+{% block title %} VAPORLAND {% endblock %}
 
 
 
 {% block content %}
-Hello,
-{% if current_user.is_authenticated %}
-    {{ current_user.username }}
-{% else %}
-    Stranger
-{% endif %}!
 
-<div class="container">
-    <h1>VaporFlask | {{ current_time }}</h1>
-    <div class="page-header">
-        <img src="https://67.media.tumblr.com/5be8f128e1a36099f93e730c19ce1565/tumblr_o2ce31aUnt1rsdpaso1_500.gif">
-        <h1> Hello {% if name %} {{name}} {% else %} Stranger {% endif %} ! Oh how I've missed you! </h1>
-    </div>
+{% if current_user.is_authenticated %}
+     HELLO, {{ current_user.username }}
     {{ wtf.quick_form(form) }}
-</div>
+{% else %}
+    <h1 class="page-header center">Hello, <a href="{{ url_for('auth.register') }}">REGISTER HERE </a> to get started in VAPORLAND</h1>
+    <div class="center">
+        <img src="http://67.media.tumblr.com/0f0b7d9ff650feec018bd69d9f0045b5/tumblr_o2iiqfeTzW1qzgh6ro1_500.gif">
+    </div>
+{% endif %}
+
+{% include '_posts.html' %}
+
+
 
 {% endblock %}
 

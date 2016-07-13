@@ -1,4 +1,5 @@
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.css') }}">
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles.css') }}">
 
 {% extends "bootstrap/base.html" %}
 
@@ -19,8 +20,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/"> VAPOR FLASK</a>
-            <a class="navbar-brand" href="/user/floff">Floff's VAPORWAVE LOUNGE</a>
+            <a class="navbar-brand" href="/"> VAPORLAND</a>
+            <a class="navbar-brand" href="/user/{{ current_user.username }}"> MY POSTS</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">

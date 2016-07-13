@@ -1,15 +1,14 @@
-<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.css') }}">
-
 {% extends "base.html" %}
 
-{% block title %} Hello {{name}} {% endblock %}
+{% block title %} {{user.username}}'s posts {% endblock %}
 
 
 {% block content %}
 
 <div class="container">
     <div class="page-header">
-        <h1> Hello, {{name}}! Welcome back to Vapor Flask.</h1>
+        <h1> {{ user.username }} </h1>
+        {% include '_posts.html' %}
     </div>
 </div>
 
