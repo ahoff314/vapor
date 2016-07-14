@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %} VAPORLAND POST {% endblock %}
+
+{% block page_content %}
+
+{% include '_posts.html' %}
+<h4 id="comments">Comments</h4>
+{% if current_user %}
+<div class="comment-form">
+    {{ wtf.quick_form(form) }}
+</div>
+{% include '_comments.html' %}
+{% endif %}
+
+
+{% endblock %}

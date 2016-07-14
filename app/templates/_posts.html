@@ -10,6 +10,21 @@
                 </a>
             </div>
             <div class="post-body">{{ post.body }}</div>
+            <div class="post-content">
+                <div class="post-footer">
+                    <a href="{{ url_for('.post', id=post.id) }}">
+                        <span class="label label-default">VAPORLINK</span>
+                    </a>
+                    {% if current_user == post.author %}
+                    <a href="{{ url_for('.edit', id=post.id) }}">
+                        <span class="label label-primary">EDIT</span>
+                    </a>
+                    {% endif %}
+                    <a href="{{ url_for('.post', id=post.id) }}#COMMENTS">
+                        <span class="label label-primary">{{ post.comments.count() }} COMMENTS</span>
+                    </a>
+                </div>
+            </div>
         </li>
         {% endfor %}
     </ul>
