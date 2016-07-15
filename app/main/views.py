@@ -8,12 +8,13 @@ from flask import Flask
 from flask import render_template, redirect, url_for
 
 from .forms import PostForm, CommentForm
-from .. import db # or from APP.MODELS?
+from .. import db
 from ..models import Role, User, Post, Comment
 from . import main
 from .forms import NameForm, PostForm
 
 app = Flask(__name__)
+
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
@@ -24,9 +25,9 @@ def index():
         db.session.add(post)
         return redirect(url_for('.index'))
     posts = Post.query.order_by(Post.timestamp.desc()).all()
-    return render_template('index.html', current_time=datetime.date.today(), 
-                            form=form, posts=posts)
-    
+    return render_template('index.html', current_time=datetime.date.today(),
+                           form=form, posts=posts)
+
 
 @main.route('/user/<username>')
 def user(username):
@@ -42,7 +43,7 @@ def post(id):
     post = Post.query.get_or_404(id)
     form = CommentForm()
     if form.validate_on_submit():
-        comment = Comment(body=form.body.data, post=post, 
+        comment = Comment(body=form.body.data, post=post,
                           author=current_user._get_current_object())
         db.session.add(comment)
         flash('Your comment has been added to VAPORLAND')
@@ -50,7 +51,7 @@ def post(id):
     pagination = post.comments.order_by(Comment.timestamp.asc()).all()
     comments = pagination
     return render_template('post.html', posts=[post], form=form,
-                            comments=comments, pagination=pagination)
+                           comments=comments, pagination=pagination)
 
 
 @main.route('/edit/<int:id>', methods=['GET', 'POST'])
@@ -67,5 +68,3 @@ def edit(id):
         return redirect(url_for('main.post', id=post.id))
     form.body.data = post.body
     return render_template('edit_post.html', form=form)
-    
-    
