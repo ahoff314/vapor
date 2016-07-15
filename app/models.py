@@ -1,14 +1,14 @@
+import os
+from datetime import datetime
+
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
 from flask import Flask
-from . import db, login_manager
 from markdown import markdown
-import os
 import bleach
-from datetime import datetime
-#from __init__ import db
 
+from . import db, login_manager
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -50,6 +50,7 @@ class User(UserMixin, db.Model):
     def verify_password(self, password):
         return check_password_hash(self.password_hash, password)
 
+
 class Post(db.Model):
     __tablename__ = 'posts'
     id = db.Column(db.Integer, primary_key=True)
@@ -76,6 +77,7 @@ class Comment(db.Model):
         target.body_html = bleach.linkify(bleach.clean(
             markdown(value, output_format='html'),
             tags=allowed_tags, strip=True))
+    
     
 db.event.listen(Comment.body, 'set', Comment.on_changed_body)    
    

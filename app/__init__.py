@@ -3,8 +3,10 @@ from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from flask_pagedown import PageDown
 from config import config
-from flask_login import LoginManager
 import os
+
+from flask_login import LoginManager
+
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -39,6 +41,5 @@ def create_app(config_name):
     login_manager.init_app(app)
     
     return app
-    
     
     

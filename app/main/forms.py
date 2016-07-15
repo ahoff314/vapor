@@ -9,17 +9,22 @@ class NameForm(Form):
     name = StringField("What is your name, friend?", validators=[Required()])
     submit = SubmitField('SUBMIT')
     
+    
 class LoginForm(Form):
     email = StringField('Email', validators=[Required(), Length(1, 64), 
-                                                                    Email()])
+                         Email()])
     password = PasswordField('Password', validators=[Required()])
     remember_me = BooleanField('Keep me logged in to Vapor Land')
     submit = SubmitField('Log In')
+
 
 class PostForm(Form):
     body = TextAreaField("POST TO VAPORLAND", validators=[Required()])
     submit =SubmitField('SUBMIT')
 
+
 class CommentForm(Form):
     body = StringField('', validators=[Required()])
     submit = SubmitField('SUBMIT')
+    
+    
