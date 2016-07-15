@@ -9,6 +9,10 @@
 .vapors {
     background-color: #ecb4bf !important;
 }
+
+.vaporedit { 
+    background-color: #00ffff !important;
+}
 div.post-tabs {
     margin-top: 16px;
 }

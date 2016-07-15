@@ -17,7 +17,7 @@
                     </a>
                     {% if current_user == post.author %}
                     <a href="{{ url_for('.edit', id=post.id) }}">
-                        <span class="label label-primary">EDIT</span>
+                        <span class="label label-primary vaporedit">EDIT</span>
                     </a>
                     {% endif %}
                     <a href="{{ url_for('.post', id=post.id) }}#COMMENTS">
