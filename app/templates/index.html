@@ -10,7 +10,10 @@
 {% block content %}
 
 {% if current_user.is_authenticated %}
-     HELLO, {{ current_user.username }}
+    <div class="center">
+       <img src="http://i.imgur.com/1q7erBv.png">
+    </div>
+     <div>HELLO, {{ current_user.username }}</div>
     {{ wtf.quick_form(form) }}
 {% else %}
     <h1 class="page-header center">Hello, <a href="{{ url_for('auth.register') }}">REGISTER HERE </a> to get started in VAPORLAND</h1>

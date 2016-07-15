@@ -1,12 +1,13 @@
-.profile-thumbnail {
-    position: absolute;
-}
-.profile-header {
-    min-height: 260px;
-    margin-left: 280px;
-}
 .center {
     text-align:center;
+    font-family: courier;
+}
+.vapor {
+    font-family: courier;
+    font-size: 18px;
+}
+.vapors {
+    background-color: #ecb4bf !important;
 }
 div.post-tabs {
     margin-top: 16px;

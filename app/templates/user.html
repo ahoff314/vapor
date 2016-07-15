@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
-{% block title %} {{user.username}}'s posts {% endblock %}
+{% block title %} {% filter upper %} {{ user.username }} {% endfilter %}'S POSTS {% endblock %}
 
 
 {% block content %}
 
 <div class="container">
     <div class="page-header">
-        <h1> {{ user.username }}'s posts </h1>
+        <h1> {% filter upper %} {{ user.username }} {% endfilter %}'S POSTS </h1>
         {% include '_posts.html' %}
     </div>
 </div>

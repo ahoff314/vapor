@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container vapor">
     <ul class="posts">
         {% for post in posts %}
         <li class="post">
@@ -21,7 +21,13 @@
                     </a>
                     {% endif %}
                     <a href="{{ url_for('.post', id=post.id) }}#COMMENTS">
-                        <span class="label label-primary">{{ post.comments.count() }} COMMENTS</span>
+                        <span class="label label-primary vapors">
+                            {% if post.comments.count() == 1 %}
+                        {{ post.comments.count() }} COMMENT
+                        {% else %}
+                        {{ post.comments.count() }} COMMENTS
+                        {% endif %}
+                        </span>
                     </a>
                 </div>
             </div>
