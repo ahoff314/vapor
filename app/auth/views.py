@@ -26,7 +26,7 @@ def logout():
     flash('You have been logged out of VAPOR LAND')
     return redirect(url_for('main.index'))
 
-    
+
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
@@ -39,5 +39,3 @@ def register():
         flash('Congrats! You are now registered. Login to VAPORLAND below.')
         return redirect(url_for('auth.login'))
     return render_template('auth/register.html', form=form)
-    
-    
