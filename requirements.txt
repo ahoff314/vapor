@@ -12,6 +12,8 @@ html5lib==0.999
 httplib2==0.8
 ipython==1.2.1
 keyring==3.5
+gunicorn==18.0
+psycopg2==2.5.1
 launchpadlib==1.10.2
 lazr.restfulclient==0.13.3
 lazr.uri==1.0.3
