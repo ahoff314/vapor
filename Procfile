@@ -1,2 +1,3 @@
 web: gunicorn manage:app
-heroku ps:scale web=1
+init: python db_create.py
+upgrade: python db_upgrade.py
