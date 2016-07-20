@@ -7,6 +7,7 @@ from .. import db
 from .forms import LoginForm, RegistrationForm
 
 
+# Verifies password information to login
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
@@ -23,10 +24,11 @@ def login():
 @login_required
 def logout():
     logout_user()
-    flash('You have been logged out of VAPOR LAND')
+    flash('You have been logged out of VAPORLAND')
     return redirect(url_for('main.index'))
 
 
+# Adds new user to the db
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()

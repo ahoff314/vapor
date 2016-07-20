@@ -1,3 +1,14 @@
-#VAPOR
+#VAPORLAND - Vaporwave music and art social network
 
-Vaporwave music and art social network. Powered by Flask FLOFF
+
+Clone the repo: `git clone git@github.com:ahoff314/vapor.git`
+
+cd flasky
+
+pip install requirements.txt
+
+python manage.py
+
+
+
+

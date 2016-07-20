@@ -16,6 +16,7 @@ from .forms import NameForm, PostForm
 app = Flask(__name__)
 
 
+# Index page to validate current user and render posts
 @main.route('/', methods=['GET', 'POST'])
 def index():
     form = PostForm()
@@ -29,6 +30,7 @@ def index():
                            form=form, posts=posts)
 
 
+# User profile 
 @main.route('/user/<username>')
 def user(username):
     user = User.query.filter_by(username=username).first()
@@ -38,6 +40,7 @@ def user(username):
     return render_template('user.html', user=user, posts=posts)
 
 
+# Post with relative id
 @main.route('/post/<int:id>', methods=['GET', 'POST'])
 def post(id):
     post = Post.query.get_or_404(id)
@@ -54,6 +57,7 @@ def post(id):
                            comments=comments, pagination=pagination)
 
 
+# Edit post with relative ID and make sure editor is the post author
 @main.route('/edit/<int:id>', methods=['GET', 'POST'])
 @login_required
 def edit(id):

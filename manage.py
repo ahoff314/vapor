@@ -5,6 +5,7 @@ from flask import Flask
 
 from app import create_app
 
+
 COV = None
 if os.environ.get('FLASK_COVERAGE'):
     import coverage
@@ -18,6 +19,7 @@ if os.path.exists('.env'):
         var = line.strip().split('=')
         if len(var) == 2:
             os.environ[var[0]] = var[1]
+
 
 from app import create_app, db
 from app.models import User, Role, Post, Comment
@@ -43,6 +45,7 @@ def deploy():
 
     # migrate database to latest revision
     upgrade()
+
 
 #host = os.environ.get('IP', '0.0.0.0')
 #port = int(os.environ.get('PORT', 8080))
